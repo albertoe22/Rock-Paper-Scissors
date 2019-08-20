@@ -12,7 +12,7 @@
     };
 
     function getUser() {
-        let input = window.prompt("Rock, Paper, or Scissors?", "Rock Paper Scissors");
+        let input = window.prompt("Rock, Paper, or Scissors?");
         switch (input.toLowerCase()) {
             case "rock":
                 return plays.ROCK;
@@ -44,7 +44,7 @@
     function playRound(playerSelection, computerSelection) { 
         switch (playerSelection) {
             case computerSelection:
-                return "It's a tie!";
+                return "It's a tie! "+ playerSelection +" vs " +computerSelection ;
                 break;
             case plays.ROCK:
                 switch (computerSelection) {
@@ -76,7 +76,8 @@
                         return "You Win! Scissors beats paper";
                         break;
                 }
-                break;
+            break;
+
 
         // }
         }
@@ -84,35 +85,56 @@
 
     function game() {
         let score = 0;
-        for (i = 0; i < 6; i++) {
-            playRound();
-            switch (playRound().charAt(4)) {
-                case "W":
+
+        for (i = 0; i < 5; i++) {
+            const playerSelection = getUser()
+            const computerSelection = computerPlay()
+            console.log(playerSelection)
+            console.log(computerSelection)
+            playRound(playerSelection, computerSelection)
+            console.log(playRound(playerSelection, computerSelection))
+            console.log(playRound(playerSelection,computerSelection).charAt(4))
+
+            switch (playRound(playerSelection,computerSelection).charAt(4)) {
+                case 'W':
                     score++;
                     break;
-                case "L":
+                case 'L':
                     score--;
                     break;
                 default:
                     score+= 0;
-
+                    break;
             }
+        
         }
         return score;
     }
 
     function winner(value) {
+        console.log(value)
+
         switch (true) {
             case (value > 0):
-                return "You win with a score of " + value  
+                return "You win  " ;
+                break;
+            case (value < 0): 
+                return "You lose  " ;
+                break;
+            default:
+                return "You tied  " ;
+                break;
         }
 
     }
-    const playerSelection = getUser()
-    const computerSelection = computerPlay()
-    console.log(playerSelection)
-    console.log(computerSelection)
-    console.log(playRound(playerSelection, computerSelection));
+    // const playerSelection = getUser()
+    // const computerSelection = computerPlay()
+    // console.log(playerSelection)
+    // console.log(computerSelection)
+    
+    // console.log(playRound(playerSelection, computerSelection))
+    console.log(winner(game()))
+    
 
 
     
