@@ -1,27 +1,118 @@
 <script>
+    const plays = {
+        ROCK: "rock",
+        PAPER: "paper",
+        SCISSORS: "scissors",
+        // properties: {
+        //     "rock": {value:1 },
+        //     "paper": {value:2 },
+        //     "scissors": {value:3 }
+        // }
+
+    };
+
+    function getUser() {
+        let input = window.prompt("Rock, Paper, or Scissors?", "Rock Paper Scissors");
+        switch (input.toLowerCase()) {
+            case "rock":
+                return plays.ROCK;
+                break;
+            case "paper":
+                return plays.PAPER;
+                break;
+            case "scissors":
+                return plays.SCISSORS;
+                break;
+        }
+    }
 
     function computerPlay() {
         let random = Math.floor((Math.random()*3))
         switch (random){
             case 0 :
-                return "Rock";
+                return plays.ROCK;
                 break;
             case 1:
-                return "Paper";
+                return plays.PAPER;
                 break;
             case 2:
-                return "Scissors";
+                return plays.SCISSORS;
                 break;
         }
 
     }
     function playRound(playerSelection, computerSelection) { 
+        switch (playerSelection) {
+            case computerSelection:
+                return "It's a tie!";
+                break;
+            case plays.ROCK:
+                switch (computerSelection) {
+                    case plays.PAPER: 
+                        return "You Lose! Paper beats rock";
+                        break;
+                    case plays.SCISSORS:
+                        return "You Win! Rock beats scissors";
+                        break;
+                }
+                break;
+            case plays.PAPER:
+                switch (computerSelection) {
+                    case plays.SCISSORS: 
+                        return "You Lose! Scissors beats paper";
+                        break;
+                    case plays.ROCK:
+                        return "You Win! Paper beats rock";
+                        break;
+                }
+                break;
+            case plays.SCISSORS: 
+                switch (computerSelection) {
+                    case plays.ROCK:
+                        return "You Lose! Rock beats scissors";
+                        break;
+
+                    case plays.PAPER: 
+                        return "You Win! Scissors beats paper";
+                        break;
+                }
+                break;
+
+        // }
+        }
+    }
+
+    function game() {
+        let score = 0;
+        for (i = 0; i < 6; i++) {
+            playRound();
+            switch (playRound().charAt(4)) {
+                case "W":
+                    score++;
+                    break;
+                case "L":
+                    score--;
+                    break;
+                default:
+                    score+= 0;
+
+            }
+        }
+        return score;
+    }
+
+    function winner(value) {
+        switch (true) {
+            case (value > 0):
+                return "You win with a score of " + value  
+        }
 
     }
-    const playerSelection = 'rock';
-    const computerSelection = computerPlay();
-
-    console.log(playRound(playerSelection, computerSelection))
+    const playerSelection = getUser()
+    const computerSelection = computerPlay()
+    console.log(playerSelection)
+    console.log(computerSelection)
+    console.log(playRound(playerSelection, computerSelection));
 
 
     
