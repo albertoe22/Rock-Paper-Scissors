@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+
+<html>
+    <div>
+        <button type = "button" value = "rock">Rock</button>
+        <button type = "button" value = "paper">Paper</button>
+        <button type = "button" vakye = "scissors">Scissors</button>
+    </div>
+</html>
+
 <script>
 
     // My enum class to represent the different moves or plays
@@ -130,11 +140,20 @@
         }
 
     }
-    
+    const button = document.querySelectorAll("button");
+    button.forEach(function(e) {
+        e.addEventListener("click", function() {
+            console.log(this.value);
+            const playerSelection = this.value;
+            const computerSelection = computerPlay();
+            playRound(playerSelection, computerSelection);
+            console.log(playRound(playerSelection, computerSelection));
+        });
 
+    });
     
     // Runs output to the console
-    console.log(winner(game()))
+    // console.log(winner(game()))
     
 
 
