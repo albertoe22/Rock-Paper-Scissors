@@ -5,12 +5,15 @@
         <link rel="stylesheet" href = "style.css">
     </head>
 
+    <img src ="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id="user">
+    <img src ="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id= "comp">
     <button type = "button" value = "rock">Rock</button>
     <button type = "button" value = "paper">Paper</button>
     <button type = "button" value = "scissors">Scissors</button>
 
-    <div id = "round">First to 5 wins!</div>
-    <div id = "yourScore"></div>
+
+    <p id = "round">First to 5 wins!</p>
+    <p id = "yourScore"></p>
 </html>
 
 <script>
@@ -37,7 +40,7 @@
                 break;
         }
     }
-    // Determines the computer's randome move every turn
+    // Determines the computer's random move every turn
     function computerPlay() {
         let random = Math.floor((Math.random()*3))
         switch (random){
@@ -130,6 +133,35 @@
         }
 
     }
+    // Function alters the blank image to represent the user and computer move visually.
+    function image(yourValue, compValue) {
+        switch (yourValue) {
+            case plays.ROCK:
+                document.getElementById("user").src = "https://www.pnglot.com/pngfile/detail/131-1314132_rock-paper-scissors-rock-paper-scissors-png.png";
+                break;
+            case plays.PAPER:
+                document.getElementById("user").src = "https://www.trzcacak.rs/myfile/full/131-1314202_selection-paper-rock-paper-scissors-hands-clipart-transparent.png"
+                break;
+            case plays.SCISSORS:
+                document.getElementById("user").src = "https://www.trzcacak.rs/myfile/detail/131-1314620_rock-paper-scissors-png.png";
+                break;
+
+        }
+        switch (compValue) {
+            case plays.ROCK:
+                document.getElementById("comp").src = "https://www.pnglot.com/pngfile/detail/131-1314132_rock-paper-scissors-rock-paper-scissors-png.png";
+                break;
+            case plays.PAPER:
+                document.getElementById("comp").src = "https://www.trzcacak.rs/myfile/full/131-1314202_selection-paper-rock-paper-scissors-hands-clipart-transparent.png"
+                break;
+            case plays.SCISSORS:
+                document.getElementById("comp").src = "https://www.trzcacak.rs/myfile/detail/131-1314620_rock-paper-scissors-png.png";
+                break;
+
+        }
+    }
+    
+
     let yourScore = 0;
     let compScore =  0;
     const button = document.querySelectorAll("button");
@@ -140,8 +172,7 @@
             let totals = score(playRound(playerSelection, computerSelection)).split(" ");
             yourScore += parseInt(totals[0]);
             compScore += parseInt(totals[1]);
-
-
+            image(playerSelection, computerSelection);
             document.getElementById("round").innerHTML  = playRound(playerSelection, computerSelection);
             document.getElementById("yourScore").innerHTML ="You: " + yourScore + " Computer: " + compScore;
             if (yourScore == 5 || compScore == 5 ) {
