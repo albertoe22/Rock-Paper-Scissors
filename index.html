@@ -4,16 +4,18 @@
     <head>
         <link rel="stylesheet" href = "style.css">
     </head>
+    <body>
+        <img src ="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id="user">
+        <img src ="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id= "comp">
+        <button type = "button" value = "rock">Rock</button>
+        <button type = "button" value = "paper">Paper</button>
+        <button type = "button" value = "scissors">Scissors</button>
 
-    <img src ="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id="user">
-    <img src ="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id= "comp">
-    <button type = "button" value = "rock">Rock</button>
-    <button type = "button" value = "paper">Paper</button>
-    <button type = "button" value = "scissors">Scissors</button>
 
+        <p id = "round">You play against a robot, first to 5 wins!</p>
+        <p id = "yourScore"></p>
+    </body>
 
-    <p id = "round">First to 5 wins!</p>
-    <p id = "yourScore"></p>
 </html>
 
 <script>
@@ -137,25 +139,25 @@
     function image(yourValue, compValue) {
         switch (yourValue) {
             case plays.ROCK:
-                document.getElementById("user").src = "https://www.pnglot.com/pngfile/detail/131-1314132_rock-paper-scissors-rock-paper-scissors-png.png";
+                document.getElementById("user").src = "https://www.nicepng.com/png/full/6-61708_rock-rock-paper-scissors-clipart.png";
                 break;
             case plays.PAPER:
                 document.getElementById("user").src = "https://www.trzcacak.rs/myfile/full/131-1314202_selection-paper-rock-paper-scissors-hands-clipart-transparent.png"
                 break;
             case plays.SCISSORS:
-                document.getElementById("user").src = "https://www.trzcacak.rs/myfile/detail/131-1314620_rock-paper-scissors-png.png";
+                document.getElementById("user").src = "https://www.seekpng.com/png/full/111-1114370_rock-paper-scissors-rock-paper-scissors-clipart.png";
                 break;
 
         }
         switch (compValue) {
             case plays.ROCK:
-                document.getElementById("comp").src = "https://www.pnglot.com/pngfile/detail/131-1314132_rock-paper-scissors-rock-paper-scissors-png.png";
+                document.getElementById("comp").src = "https://www.nicepng.com/png/full/6-61708_rock-rock-paper-scissors-clipart.png";
                 break;
             case plays.PAPER:
                 document.getElementById("comp").src = "https://www.trzcacak.rs/myfile/full/131-1314202_selection-paper-rock-paper-scissors-hands-clipart-transparent.png"
                 break;
             case plays.SCISSORS:
-                document.getElementById("comp").src = "https://www.trzcacak.rs/myfile/detail/131-1314620_rock-paper-scissors-png.png";
+                document.getElementById("comp").src = "https://www.seekpng.com/png/full/111-1114370_rock-paper-scissors-rock-paper-scissors-clipart.png";
                 break;
 
         }

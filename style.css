@@ -1,3 +1,7 @@
+body {
+    background-color: #83b8ff;
+}
+
 button {
     display: block;
     width: 33%;
@@ -5,12 +9,17 @@ button {
     text-align: center;
     padding: 20px;
     margin: 10px 0px 10px 10px;
+    border-radius: 5px;
 }
 
 p {
     display: block;
-    height: 18px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
 }
+
+
 
 #round {
     text-align: center;
@@ -28,6 +37,5 @@ img {
 }
 
 #yourScore {
-    color: teal;
     text-align: center;
 }
