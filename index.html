@@ -3,17 +3,22 @@
 <html>
     <head>
         <link rel="stylesheet" href = "style.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800&display=swap" rel="stylesheet">
     </head>
     <body>
-        <img src ="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id="user">
-        <img src ="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id= "comp">
-        <button type = "button" value = "rock">Rock</button>
-        <button type = "button" value = "paper">Paper</button>
-        <button type = "button" value = "scissors">Scissors</button>
-
-
-        <p id = "round">You play against a robot, first to 5 wins!</p>
-        <p id = "yourScore"></p>
+        <h1>Rock Paper Scissors</h1> <br>
+        <h2>by Albert Truong</h2>
+        <div>
+            <button type = "button" value = "rock">Rock</button>
+            <button type = "button" value = "paper">Paper</button>
+            <button type = "button" value = "scissors">Scissors</button>
+        </div>
+        <div>
+            <img src ="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id="user">
+            <img src ="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id= "comp">
+        </div>
+        <p id = "round">You play against a robot, first to 5 wins!</p><br>
+        <p id = "yourScore">Beginning Score is 0:0</p>
     </body>
 
 </html>
@@ -60,6 +65,8 @@
     }
     // Plays out every round, and determines winner of every round
     function playRound(playerSelection, computerSelection) { 
+
+        document.getElementById("round").style.fontWeight = "400";
         switch (playerSelection) {
             case computerSelection:
                 return "It's a tie! "+ playerSelection +" vs " +computerSelection ;
@@ -121,17 +128,14 @@
     }
 
     function winner(yourValue, compValue) {
-
+        document.getElementById("round").style.fontWeight = "800";
         switch (true) {
             case (yourValue > compValue):
-                return "You win with a score of " + yourValue + " to " + compValue;
+                return "You win! With a score of " + yourValue + " to " + compValue;
                 break;
             case (yourValue < compValue): 
-                return "You lose with a score of " + yourValue + " to " + compValue;
+                return "You lose! With a score of " + yourValue + " to " + compValue;
                 break;
-            // default:
-            //     return "You tied with a score of " + yourValue + " to " + compValue;
-            //     break;
         }
 
     }
@@ -176,7 +180,7 @@
             compScore += parseInt(totals[1]);
             image(playerSelection, computerSelection);
             document.getElementById("round").innerHTML  = playRound(playerSelection, computerSelection);
-            document.getElementById("yourScore").innerHTML ="You: " + yourScore + " Computer: " + compScore;
+            document.getElementById("yourScore").innerHTML ="You:  " + yourScore + "  Computer: " + compScore;
             if (yourScore == 5 || compScore == 5 ) {
                 document.getElementById("round").innerHTML  = winner(yourScore, compScore);
                 yourScore = 0;

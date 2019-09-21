@@ -1,22 +1,53 @@
+h1 {
+    display: inline-block;
+    font-size: 55px;
+    font-family: 'Open Sans', sans-serif;
+    color: #1a74e0;
+    position:static;
+    margin:10px;        
+    font-weight: 400;
+}
+
+h2 {
+    display: inline-block;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+    color: #1a74e0;
+    position:static;
+    margin:10px;        
+    font-weight: 400;
+    margin-top: 0px;
+}
+
 body {
-    background-color: #83b8ff;
+    background-color: #c2dcff;
+    text-align: center;
+    height: 100%;
 }
 
 button {
-    display: block;
-    width: 33%;
-    font-size: 25px;
+    display: inline-block;
+    width: 150px;    
     text-align: center;
-    padding: 20px;
-    margin: 10px 0px 10px 10px;
+    font-size: 25px;
+    text-decoration: none;
+    padding: 15px;
+    margin: 10px ;
     border-radius: 5px;
+    background-color: #0a73ff;
+    color: #dbebff;
+    border: solid;
+    border-width: 1.5px;
 }
 
 p {
-    display: block;
+    display: inline-block;
     font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
+    font-family: 'Open Sans', sans-serif;
+
+    color: #1a74e0;
+    position:static;
+    margin:10px;        
 }
 
 
@@ -27,15 +58,15 @@ p {
 img {
     width: 200px;
     height: 200px;
-    position: absolute;
-    margin-left:40%;
-    
-
+    position: static;
+    margin: 20px;
 }
 #comp {
-    margin-left: 60%;
+    /* margin-left: 60%; */
 }
 
 #yourScore {
     text-align: center;
+
+    /* border-color */
 }
